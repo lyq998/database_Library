@@ -6,6 +6,9 @@
         table { width: 1000px; min-height: 25px; line-height: 25px; text-align: center; border-collapse: collapse;}   
 </style>
  <html>
+ <head>
+<title>查询结果</title>
+</head>
   <body> 
 	<h1>查询结果:</h1>
 	<div>

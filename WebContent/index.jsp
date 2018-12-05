@@ -3,6 +3,9 @@
  <meta http-equiv="Content-Type"content="text/html;charset=gbk">   
  
 <html>
+<head>
+<title>首页</title>
+</head>
 <%
 String user = request.getParameter("user"); 
 String update_user="window.location.href('update_user.jsp?user="+user+"')";
@@ -12,6 +15,9 @@ String update_user="window.location.href('update_user.jsp?user="+user+"')";
     <br> 
 	<div>
 		图书管理系统测试
+	</div>
+	<div>
+		欢迎你！<%=user %>!
 	</div>
 	<div>
 		此处可插入图片

@@ -4,7 +4,7 @@
 
 <html>
 <head>
-<title>Add book</title>
+<title>增加书目</title>
 </head>
 <body>
 	<form action = "Addbook" method="post">

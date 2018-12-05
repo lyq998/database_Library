@@ -4,7 +4,7 @@
  
 <html>
 <head>
-<title>登录</title>
+<title>管理员登录</title>
 </head>
 <body>
 <script type="text/javascript">
@@ -22,11 +22,11 @@
                   document.myform.submit();
             }
 </script>
-<form action="Login" method="post" name="myform">
+<form action="ManagerLogin" method="post" name="myform">
 	<div class='login'>
 		<div>
-			<p>用户名：</p>			
-			<input type="text" name="username">			
+			<p>管理员用户名：</p>			
+			<input type="text" name="managername">			
 		</div>
 		
 		<div>
@@ -36,10 +36,9 @@
 	</div>
 	<br>
 	<input type="submit" value="登录" onclick="check(this.form)"> 
-	<input type="button" value="注册" onclick="window.location.href('signin.jsp')" >
-</form>	
+</form>
 <div>
-	<input type="button" value="管理者登录" onclick="window.location.href('managerLogin.jsp')">
+	<input type="button" value="用户登录" onclick="window.location.href('login.jsp')">
 </div>
 </body>
 </html>

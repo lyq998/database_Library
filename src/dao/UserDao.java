@@ -37,4 +37,16 @@ public class UserDao {
 
 		return flag;
 	}
+
+	// 修改用户信息
+	public int updateUser(User user) throws Exception {
+		String sql = "UPDATE users SET password='" + user.getPassword() + "',realname='" + user.getRealname()
+				+ "',sex='" + user.getSex() + "',telnumber='" + user.getTelnumber() + "' WHERE username='"
+				+ user.getUsername() + "'";
+
+		PreparedStatement ps = DbHelper.getConnection().prepareStatement(sql);
+		int flag = ps.executeUpdate();
+
+		return flag;
+	}
 }

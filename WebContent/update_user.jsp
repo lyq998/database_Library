@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
  <meta http-equiv="Content-Type"content="text/html;charset=gbk">   
+ 
+ <%
+String user = request.getParameter("user"); 
+ %>
+ 
 <html>
 <head>
 <title>修改用户信息</title>
@@ -49,8 +54,9 @@
 	<form action="Update_user" method="post" name="myform">
 		<div class='signforom'>
 			<div>
-				<p>用户名：</p>			
-				<input type="text" name="username">			
+				<p>您的用户名为：<%=user %></p>			
+				<input type="hidden" name="user" value=<%=user %>>
+				<!--通过表单向java里传值-->
 			</div>
 			
 			<div>

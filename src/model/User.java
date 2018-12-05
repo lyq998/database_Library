@@ -6,6 +6,7 @@ public class User {
 	private String realname;
 	private String sex;
 	private String telnumber;
+	// 后期可以增加ID
 
 	public User() {
 	}
