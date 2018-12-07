@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ManagerDao;
 import model.Manager;
@@ -27,7 +28,9 @@ public class ManagerLoginServlet extends HttpServlet {
 			boolean flag = managerdao.Login(manager);
 
 			if (flag) {
-				response.sendRedirect("/pgtest/managerIndex.jsp?manager=" + managername);
+				HttpSession s = request.getSession();
+				s.setAttribute("managerName", managername);
+				response.sendRedirect("/pgtest/managerIndex.jsp");
 			} else {
 				response.sendRedirect("/pgtest/managerLogin.jsp");
 			}

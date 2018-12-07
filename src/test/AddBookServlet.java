@@ -1,6 +1,7 @@
 package test;
 
-import javax.servlet.RequestDispatcher;
+import java.io.PrintWriter;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +25,16 @@ public class AddBookServlet extends HttpServlet {
 			book.setPrice(Float.valueOf(request.getParameter("price")));
 
 			BookDao dao = new BookDao();
-			int rs = dao.addBook(book);
+			int flag = dao.addBook(book);
 
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/search.jsp");
-			rd.forward(request, response);
+			if (flag == 1) {
+				response.sendRedirect("/pgtest/managerIndex.jsp");
+			} else {
+				PrintWriter out = response.getWriter();
+				out.print("<script>alert('The callnumber already exists');window.location='add_books.jsp' </script>");
+				out.flush();
+				out.close();
+			}
 		} catch (Exception e) {
 		}
 	}

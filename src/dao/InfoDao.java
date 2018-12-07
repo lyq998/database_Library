@@ -36,7 +36,7 @@ public class InfoDao {
 	}
 
 	public List<Info> getAllInfo() throws Exception {
-		String sql = "SELECT * FROM info";
+		String sql = "SELECT * FROM info order by 1 desc";
 		PreparedStatement ps = DbHelper.getConnection().prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		List<Info> infos = new ArrayList<Info>();

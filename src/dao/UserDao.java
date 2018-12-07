@@ -30,10 +30,21 @@ public class UserDao {
 
 	// 注册用户
 	public int insertUser(User user) throws Exception {
-		String sql = "Insert into users (username,password) values('" + user.getUsername() + "','" + user.getPassword()
-				+ "')";
-		PreparedStatement ps = DbHelper.getConnection().prepareStatement(sql);
-		int flag = ps.executeUpdate();
+		int flag = 0;
+		String sql0 = "Select * From users Where username ='" + user.getUsername() + "'";
+
+		PreparedStatement ps0 = DbHelper.getConnection().prepareStatement(sql0);
+		ResultSet rs0 = ps0.executeQuery();
+
+		if (rs0.next()) // 用户名已存在
+		{
+			flag = 0;
+		} else {
+			String sql = "Insert into users (username,password) values('" + user.getUsername() + "','"
+					+ user.getPassword() + "')";
+			PreparedStatement ps = DbHelper.getConnection().prepareStatement(sql);
+			flag = ps.executeUpdate();
+		}
 
 		return flag;
 	}

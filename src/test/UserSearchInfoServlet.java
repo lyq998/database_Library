@@ -11,15 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import dao.InfoDao;
 import model.Info;
 
-@WebServlet("/SearchInfo")
-public class ShowInfoServlet extends HttpServlet {
+@WebServlet("/UserSearchInfo")
+public class UserSearchInfoServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("text/html;charset=utf-8");
 			String thatid = request.getParameter("id");
-			String managername = request.getParameter("managername");
-			System.out.println(managername);
 			if (thatid.equals("")) {
 				InfoDao dao = new InfoDao();
 
@@ -27,7 +25,7 @@ public class ShowInfoServlet extends HttpServlet {
 				if (infos != null) {
 					request.setAttribute("infos", infos);
 				}
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/showInfo.jsp");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/showInfo_user.jsp");
 				rd.forward(request, response);
 			} else {
 				InfoDao dao = new InfoDao();
@@ -36,7 +34,7 @@ public class ShowInfoServlet extends HttpServlet {
 				if (infos != null) {
 					request.setAttribute("infos", infos);
 				}
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/showInfo.jsp");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/showInfo_user.jsp");
 				rd.forward(request, response);
 			}
 		} catch (Exception e) {

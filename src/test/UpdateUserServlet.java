@@ -23,22 +23,20 @@ public class UpdateUserServlet extends HttpServlet {
 			String realname = request.getParameter("realname");
 			String sex = request.getParameter("sex");
 			String telnumber = request.getParameter("telnumber");
-			username0 = username;
-//			System.out.println(username);
 
 			User user = new User(username, password, realname, sex, telnumber);
 			UserDao dao = new UserDao();
 			int flag = dao.updateUser(user);
 
 			if (flag == 1) {
-				response.sendRedirect("/pgtest/index.jsp?user=" + username);
+				response.sendRedirect("/pgtest/index.jsp");
 			} else {
-				response.sendRedirect("/pgtest/update_user.jsp?user=" + username);
+				response.sendRedirect("/pgtest/update_user.jsp");
 			}
 
 		} catch (Exception e) {
 			try {
-				response.sendRedirect("/pgtest/update_user.jsp?user=" + username0);
+				response.sendRedirect("/pgtest/update_user.jsp");
 			} catch (IOException e1) {
 				// TODO 自动生成的 catch 块
 				e1.printStackTrace();

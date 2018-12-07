@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 
@@ -22,7 +23,9 @@ public class LoginServlet extends HttpServlet {
 			boolean flag = user.Login(username, password);
 
 			if (flag) {
-				response.sendRedirect("/pgtest/index.jsp?user=" + username);
+				HttpSession s = request.getSession();
+				s.setAttribute("userName", username);
+				response.sendRedirect("/pgtest/index.jsp");
 			} else {
 				response.sendRedirect("/pgtest/login.jsp");
 			}

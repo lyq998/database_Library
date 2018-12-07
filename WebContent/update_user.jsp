@@ -3,7 +3,11 @@
  <meta http-equiv="Content-Type"content="text/html;charset=gbk">   
  
  <%
-String user = request.getParameter("user"); 
+ String user = (String)session.getAttribute("userName"); 
+ String style_display="none";
+ if(!user.isEmpty()){
+ 	style_display="block";
+ }
  %>
  
 <html>
@@ -51,6 +55,7 @@ String user = request.getParameter("user");
                   document.myform.submit();
             }
 </script>
+<div style="display:<%=style_display%>;">
 	<form action="Update_user" method="post" name="myform">
 		<div class='signforom'>
 			<div>
@@ -83,5 +88,6 @@ String user = request.getParameter("user");
 		<input type="submit" value="修改" onclick="check(this.form)"> 
 		<input type="button" value="返回主页" onclick="window.location.href('index.jsp')" />
 	</form>
+</div>
 </body>
 </html>

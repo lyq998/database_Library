@@ -14,12 +14,13 @@ public class AddInfoServlet extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("text/html;charset=utf-8");
 			String text = request.getParameter("text");
-			String manager = request.getParameter("manager");
 			InfoDao infodao = new InfoDao();
 			int flag = infodao.AddInfo(text);
 
 			if (flag == 1) {
-				response.sendRedirect("/pgtest/managerIndex.jsp?manager=" + manager);
+				response.sendRedirect("/pgtest/managerIndex.jsp");
+			} else {
+				response.sendRedirect("/pgtest/add_info.jsp");
 			}
 
 		} catch (Exception e) {

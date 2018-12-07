@@ -14,14 +14,16 @@
 	<div>
 		<table>
 				<tr>
-					<td>Callnumber</td>
+					<td>索书号</td>
 					<td>ISBN</td>
-					<td>Name</td>
-					<td>Author</td>
-					<td>Publisher</td>
-					<td>Price</td>
+					<td>书名</td>
+					<td>作者</td>
+					<td>出版社</td>
+					<td>价格</td>
+					<td>借出用户名</td>
+					<td>归还时间</td>
 				</tr>
-				<c:forEach items="${books}" var="book">
+				<c:forEach items="${borrowbooks}" var="book">
 					<tr style="border:1px solid;">
 						<td>${book.callnumber}</td>
 						<td>${book.isbn}</td>
@@ -29,6 +31,8 @@
 						<td>${book.author}</td>
 						<td>${book.publisher}</td>
 						<td>${book.price}</td>
+						<td>${book.username}</td>
+						<td>${book.backtime}</td>
 					</tr>
 				</c:forEach>
 		</table>

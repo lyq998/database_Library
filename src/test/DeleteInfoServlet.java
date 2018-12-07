@@ -19,7 +19,7 @@ public class DeleteInfoServlet extends HttpServlet {
 			int flag = dao.deleteInfo(id);
 
 			if (flag == 1) {
-				response.sendRedirect("/pgtest/managerIndex.jsp?manager=lyq");
+				response.sendRedirect("/pgtest/managerIndex.jsp");
 			} else {
 				response.sendRedirect("/pgtest/login.jsp");
 			}

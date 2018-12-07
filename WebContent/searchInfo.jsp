@@ -3,20 +3,25 @@
  <meta http-equiv="Content-Type"content="text/html;charset=gbk">   
 <html>
 <%
-String manager = request.getParameter("manager"); 
+String manager = (String)session.getAttribute("managerName"); 
+String style_display="none";
+if(!manager.isEmpty()){
+	style_display="block";
+}
 %>
-
 <head>
 <title>查询公告</title>
 </head>
 <body>
 	<h3>查询公告</h3>
 	<p>请输入公告id。若想查看所有公告，请直接点击查询按钮。
-    <br> 
-    <form action = "SearchInfo" method="post">
-  	    <input type="text" name="id"> 
-  	    <input type="hidden" name="managername" value="<%=manager %>">
-        <input type="submit" value="查询"> 
-    </form> 
+	<div style="display:<%=style_display%>;">
+	   <br> 
+	    <form action = "SearchInfo" method="post">
+	  	    <input type="text" name="id"> 
+	        <input type="submit" value="查询"> 
+	    </form> 
+	</div>
+ 
 </body>
 </html>

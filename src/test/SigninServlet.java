@@ -1,6 +1,7 @@
 package test;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +30,10 @@ public class SigninServlet extends HttpServlet {
 			if (flag == 1) {
 				response.sendRedirect("/pgtest/login.jsp");
 			} else {
-				response.sendRedirect("/pgtest/signin.jsp");
+				PrintWriter out = response.getWriter();
+				out.print("<script>alert('The username already exists'); window.location='signin.jsp' </script>");
+				out.flush();
+				out.close();
 			}
 		} catch (Exception e) {
 			try {

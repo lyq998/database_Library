@@ -38,7 +38,7 @@
 	<input type="submit" value="登录" onclick="check(this.form)"> 
 </form>
 <div>
-	<input type="button" value="用户登录" onclick="window.location.href('login.jsp')">
+	<input type="button" value="普通用户登录" onclick="window.location.href('login.jsp')">
 </div>
 </body>
 </html>

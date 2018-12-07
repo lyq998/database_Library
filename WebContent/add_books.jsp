@@ -3,10 +3,18 @@
  <meta http-equiv="Content-Type"content="text/html;charset=gbk">   
 
 <html>
+ <%
+ String manager = (String)session.getAttribute("managerName"); 
+ String style_display="none";
+ if(!manager.isEmpty()){
+ 	style_display="block";
+ }
+ %>
 <head>
 <title>增加书目</title>
 </head>
 <body>
+<div style="display:<%=style_display%>;">
 	<form action = "Addbook" method="post">
         <div>
 		<table>
@@ -28,9 +36,10 @@
 				</tr>
 		</table>
 		<div>
-			<input type="submit" value="Addbook">  
+			<input type="submit" value="增加书籍">  
 		</div>
 	</div>
     </form> 
+</div>
 </body>
 </html>

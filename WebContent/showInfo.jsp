@@ -27,7 +27,7 @@
 				</c:forEach>
 		</table>
 	</div>
-	<input type="button" value="返回管理员主页" onclick="window.location.href('managerIndex.jsp?manager=lyq')" />
+	<input type="button" value="返回管理员主页" onclick="window.location.href('managerIndex.jsp')" />
 	<p>若想删除公告，请输入公告id并点击确认删除按钮
 	<form action = "DeleteInfo" method="post">
   	    <input type="text" name="id"> 
