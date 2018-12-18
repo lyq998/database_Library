@@ -37,5 +37,9 @@
 				</c:forEach>
 		</table>
 	</div>
+	<br>
+<div>
+	<input type="button" value="返回首页" onclick="window.location.href('index.jsp')">
+</div>
 </body>
 </html>

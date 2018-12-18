@@ -19,8 +19,12 @@ if(!user.isEmpty()){
     <div style="display:<%=style_display%>;">
     <form action = "Search" method="post">
   	    <input type="text" name="name"> 
-        <input type="submit" value="Search"> 
+        <input type="submit" value="查询"> 
     </form> 
     </div>
+    <br>
+<div>
+	<input type="button" value="返回首页" onclick="window.location.href('index.jsp')">
+</div>
   </body> 
 </html> 
